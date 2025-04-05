@@ -89,6 +89,10 @@ def get_main_to_sublinks(query, num_results):
 
 # Function to save the dictionary to a JSON file
 def save_to_json(data, filename="data/sublinks_results.json"):
+    # Ensure the directory exists
+    import os
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
